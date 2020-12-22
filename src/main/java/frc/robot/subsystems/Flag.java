@@ -8,13 +8,31 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
 
+import static frc.robot.Constants.*;
 
-public class ExampleSubsystem extends SubsystemBase {
+public class Flag extends SubsystemBase {
   /**
-   * Creates a new ExampleSubsystem.
+   * Creates a new Flag.
    */
-  public ExampleSubsystem() {
+  private Solenoid flag = new Solenoid(compressorModule, flagPort);
+
+  private Compressor airow = new Compressor(0);
+  
+  private boolean flagUp = false;
+
+  public void flagSwitch() {
+      if (flagUp) {
+          flag.set(false);
+      } else {
+          flag.set(true);
+      }
+  }
+
+  public Flag() {
+      airow.start();
 
   }
 
