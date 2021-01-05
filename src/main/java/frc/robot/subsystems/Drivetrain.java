@@ -17,11 +17,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
 public class Drivetrain extends SubsystemBase { 
-    private CANSparkMax LFrontWheel = new CANSparkMax(Constants.kLeftFrontPort, MotorType.kBrushless);
-    private CANSparkMax RFrontWheel = new CANSparkMax(Constants.kRightFrontPort, MotorType.kBrushless);
+    private CANSparkMax LFrontWheel = new CANSparkMax(kLeftFrontPort, MotorType.kBrushless);
+    private CANSparkMax RFrontWheel = new CANSparkMax(kRightFrontPort, MotorType.kBrushless);
     
-    private CANSparkMax LRearWheel = new CANSparkMax(Constants.kLeftRearPort, MotorType.kBrushless);
-    private CANSparkMax RRearWheel = new CANSparkMax(Constants.kRightRearPort, MotorType.kBrushless);
+    private CANSparkMax LRearWheel = new CANSparkMax(kLeftRearPort, MotorType.kBrushless);
+    private CANSparkMax RRearWheel = new CANSparkMax(kRightRearPort, MotorType.kBrushless);
 
     private DifferentialDrive roboDrive = new DifferentialDrive(LFrontWheel, RFrontWheel); 
 
