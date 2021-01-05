@@ -7,8 +7,9 @@
 
 package frc.robot.commands;
 
-import frc.robot.Robot;
-import frc.robot.RobotContainer;
+/*import frc.robot.Robot;
+import frc.robot.RobotContainer;*/
+import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -19,12 +20,17 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class TankDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
+  private Drivetrain drivetrain;
+
   XboxController xbox = new XboxController(0);
-  public TankDrive() {
+  public TankDrive(Drivetrain drivetrain1) {
     //use requires() here to declare subsystem dependencies
-    addRequirements(Robot.drive);
-    addRequirements(RobotContainer.drive);
+    /*addRequirements(Robot.drive);
+    addRequirements(RobotContainer.drive);*/
+    drivetrain = drivetrain1;
   }
+
+
 
   // Called when the command is initially scheduled.
   @Override
@@ -34,7 +40,8 @@ public class TankDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.drive.TankDrive(xbox.getRawAxis(5), xbox.getRawAxis(1));
+    drivetrain.getDifferentialDrive().tankDrive(xbox.getRawAxis(5), xbox.getRawAxis(1));
+    //.TankDrive(xbox.getRawAxis(5), xbox.getRawAxis(1));
   }
 
   // Called once the command ends or is interrupted.
